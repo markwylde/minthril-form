@@ -15,13 +15,13 @@ h(
     fields: [{
       name: 'firstName',
       label: 'First Name',
-      component: formFieldText,
+      component: require('minthril-ui-form/createTextInput'),
       autoFocus: true,
       initialValue: 'Joe'
     }, {
       name: 'lastName',
       label: 'Last Name',
-      component: formFieldText,
+      component: require('minthril-ui-form/createTextInput'),
       initialValue: 'Bloggs'
     }
   )
