@@ -1,10 +1,7 @@
 const minthril = require('minthril');
 const html = require('hyperx')(minthril);
 
-const createForm = require('../');
-const createTextInput = require('../createTextInput');
-const createSelectInput = require('../createSelectInput');
-const createCheckboxInput = require('../createCheckboxInput');
+const { createForm, createTextInput, createSelectInput, createCheckboxInput } = require('../');
 
 const eventLog = [];
 

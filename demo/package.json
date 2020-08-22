@@ -1,7 +1,7 @@
 {
-  "name": "toc-form-demo",
+  "name": "minthril-form-demo",
   "version": "1.0.0",
-  "description": "An example of using minthril",
+  "description": "An example of using minthril form",
   "main": "index.js",
   "scripts": {
     "build": "node_modules/.bin/browserify -g uglifyify ./index.js --noparse clone > ./index.bundle.js",

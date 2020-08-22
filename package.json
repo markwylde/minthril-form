@@ -1,7 +1,7 @@
 {
   "name": "minthril-form",
   "version": "1.0.0",
-  "description": "This is a component that can be used in any UI library that uses a (tagName, options, children) function signature.",
+  "description": "A form ui library for minthril.",
   "main": "index.js",
   "keywords": [],
   "author": "",
