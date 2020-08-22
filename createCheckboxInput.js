@@ -3,7 +3,7 @@ const html = require('hyperx')(minthril, {
   createFragment: children => children
 });
 
-function createFieldText (options) {
+function createCheckboxInput (options) {
   return minthril.createComponent(function (state, draw, component) {
     function handleInput (event) {
       state.value = !!event.target.checked;
@@ -23,6 +23,6 @@ function createFieldText (options) {
   }, options, 'min-ui-form-checkbox-input');
 }
 
-createFieldText.handlesOwnLabel = true;
+createCheckboxInput.handlesOwnLabel = true;
 
-module.exports = createFieldText;
+module.exports = createCheckboxInput;
