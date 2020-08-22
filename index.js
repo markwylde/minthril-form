@@ -1,5 +1,5 @@
 module.exports = {
-  createForm: require('createForm'),
-  createSelectInput: require('createSelectInput'),
-  createTextInput: require('createTextInput')
+  createForm: require('./createForm'),
+  createSelectInput: require('./createSelectInput'),
+  createTextInput: require('./createTextInput')
 };
