@@ -1,6 +1,6 @@
 {
   "name": "minthril-form",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A form ui library for minthril.",
   "main": "index.js",
   "keywords": [],
