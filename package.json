@@ -1,0 +1,22 @@
+{
+  "name": "minthril-form",
+  "version": "1.0.0",
+  "description": "This is a component that can be used in any UI library that uses a (tagName, options, children) function signature.",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "semistandard": {
+    "ignore": [
+      "index.bundle.js"
+    ]
+  },
+  "devDependencies": {
+    "browserify": "^16.5.2",
+    "hyperx": "^2.5.4",
+    "local-web-server": "^4.2.1",
+    "minthril": "^2.1.4",
+    "semistandard": "^14.2.3",
+    "watchify": "^3.11.1"
+  }
+}

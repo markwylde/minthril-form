@@ -1,0 +1,33 @@
+{
+  "name": "toc-form-demo",
+  "version": "1.0.0",
+  "description": "An example of using minthril",
+  "main": "index.js",
+  "scripts": {
+    "build": "node_modules/.bin/browserify -g uglifyify ./index.js --noparse clone > ./index.bundle.js",
+    "watch": "node_modules/.bin/watchify -d -o ./index.bundle.js index.js",
+    "serve": "node_modules/.bin/ws -d ./ --spa index.html",
+    "start": "npm run watch & npm run serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "semistandard": {
+    "ignore": [
+      "index.bundle.js"
+    ]
+  },
+  "devDependencies": {
+    "browserify": "^16.5.2",
+    "hyperx": "^2.5.4",
+    "local-web-server": "^4.2.1",
+    "minthril": "^2.1.4",
+    "semistandard": "^14.2.3",
+    "uglifyify": "^5.0.2",
+    "watchify": "^3.11.1"
+  },
+  "dependencies": {
+    "hyperscript": "^2.0.2"
+  }
+}
