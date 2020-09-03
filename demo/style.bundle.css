@@ -15,6 +15,9 @@ h3 { font-size: 100%; }
 h4 { font-size: 80%; }
 h5 { font-size: 60%; }
 
+.results-list {
+  overflow: scroll;
+}
 
 .exampleFormContainer {
   max-width: 400px;

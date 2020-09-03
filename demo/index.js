@@ -103,7 +103,7 @@ function demoApp () {
         })}
         </div>
 
-        <ul>
+        <ul class="results-list">
         ${eventLog.map(entry => {
           return html`
             <li>
