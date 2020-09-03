@@ -1,9 +1,10 @@
 const minthril = require('minthril');
 const html = require('hyperx')(minthril);
 
-const { createForm, createTextInput, createSelectInput, createCheckboxInput } = require('../');
+const { createForm, createTextInput, createSelectInput, createCheckboxInput, createFileInput } = require('../');
 
 const eventLog = [];
+let errors = {};
 
 function demoApp () {
   return html`
@@ -18,6 +19,7 @@ function demoApp () {
             {
               name: 'firstName',
               label: 'First Name',
+              errors: errors.firstName,
               component: createTextInput,
               autoFocus: true,
               initialValue: 'Joe'
@@ -25,12 +27,14 @@ function demoApp () {
             {
               name: 'lastName',
               label: 'Last Name',
+              errors: errors.lastName,
               component: createTextInput,
               initialValue: 'Bloggs'
             },
             {
               name: 'location',
               label: 'Location',
+              errors: errors.location,
               component: createSelectInput,
               options: [
                 {
@@ -47,14 +51,50 @@ function demoApp () {
             {
               name: 'active',
               label: 'Active',
+              errors: errors.active,
               component: createCheckboxInput,
               initialValue: true
+            },
+            {
+              name: 'pictures',
+              label: 'Profile Pictures',
+              errors: errors.picture,
+              prefix: '/data/avatars/',
+              component: createFileInput,
+              multiple: true,
+              initialValue: [{
+                name: 'bbb.txt',
+                id: 12
+              }]
+            },
+            {
+              name: 'failOnSubmit',
+              label: 'Fail on submit',
+              errors: errors.failOnSubmit,
+              component: createCheckboxInput,
+              initialValue: false
             }
           ],
           onSubmit: (event, state) => {
             event.preventDefault();
-            eventLog.unshift(['submitted', JSON.stringify(state, null, 2)]);
+            errors = {};
             render();
+
+            const button = event.target.querySelector('form > button');
+            button.disabled = true;
+
+            eventLog.unshift(['submitted', JSON.stringify(state, null, 2)]);
+
+            setTimeout(() => {
+              button.disabled = false;
+              if (state.failOnSubmit) {
+                errors = {
+                  firstName: ['Must be unique'],
+                  lastName: ['Must be valid']
+                };
+              }
+              render();
+            }, 500);
           },
           onInput: state => {
             eventLog.unshift(['inputted', JSON.stringify(state, null, 2)]);
