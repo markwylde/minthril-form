@@ -1,6 +1,14 @@
 const minthril = require('minthril');
 const html = require('hyperx')(minthril);
 
+function renderErrors (errors) {
+  return html`
+    <ul class="form-errors">
+      ${errors.map(error => html`<li>${error}</li>`)}
+    </ul>
+  `;
+}
+
 function createForm (options) {
   return minthril.createComponent(function (state, draw, component) {
     function handleCreate () {
@@ -23,6 +31,7 @@ function createForm (options) {
           return html`
             <div class="form-group">
               ${field.component.handlesOwnLabel ? null : html`<label for=${id}>${field.label}</label>`}
+              ${field.errors ? renderErrors(field.errors) : ''}
               ${field.component({ id, ...field, onInput: handleInput })}
             </div>
           `;
