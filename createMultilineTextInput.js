@@ -10,7 +10,7 @@ function createMultilineTextInput (options) {
     }
 
     function handleCreate (event) {
-      event.dom.value = options.initialValue;
+      event.dom.value = options.initialValue || '';
       autosize(event.dom);
     }
 

@@ -9,7 +9,7 @@ function createFieldText (options) {
     }
 
     function handleCreate (event) {
-      event.dom.value = options.initialValue;
+      event.dom.value = options.initialValue || '';
     }
 
     component.getValue = () => state.value;
