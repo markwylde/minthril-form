@@ -12,6 +12,7 @@
     ]
   },
   "dependencies": {
+    "autosize": "^4.0.2",
     "minthril": "^2.1.4"
   },
   "devDependencies": {

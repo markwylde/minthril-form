@@ -1,7 +1,14 @@
 const minthril = require('minthril');
 const html = require('hyperx')(minthril);
 
-const { createForm, createTextInput, createSelectInput, createCheckboxInput, createFileInput } = require('../');
+const {
+  createForm,
+  createTextInput,
+  createSelectInput,
+  createMultilineTextInput,
+  createCheckboxInput,
+  createFileInput
+} = require('../');
 
 const eventLog = [];
 let errors = {};
@@ -29,6 +36,13 @@ function demoApp () {
               label: 'Last Name',
               errors: errors.lastName,
               component: createTextInput,
+              initialValue: 'Bloggs'
+            },
+            {
+              name: 'bio',
+              label: 'Profile Bio',
+              errors: errors.lastName,
+              component: createMultilineTextInput,
               initialValue: 'Bloggs'
             },
             {

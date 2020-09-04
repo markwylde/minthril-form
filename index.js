@@ -3,5 +3,6 @@ module.exports = {
   createSelectInput: require('./createSelectInput'),
   createTextInput: require('./createTextInput'),
   createCheckboxInput: require('./createCheckboxInput'),
-  createFileInput: require('./createFileInput')
+  createFileInput: require('./createFileInput'),
+  createMultilineTextInput: require('./createMultilineTextInput')
 };

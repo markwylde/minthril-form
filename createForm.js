@@ -11,6 +11,8 @@ function renderErrors (errors) {
 
 function createForm (options) {
   return minthril.createComponent(function (state, draw, component) {
+    state.formId = state.formId || Math.floor(Math.random() * 1e16);
+
     function handleCreate () {
       options.fields.forEach(field => {
         state[field.name] = field.initialValue;
@@ -27,12 +29,11 @@ function createForm (options) {
     return html`
       <form oncreate=${handleCreate} onsubmit=${event => options.onSubmit && options.onSubmit(event, state)}>
         ${options.fields.map(field => {
-          const id = field.id || Math.floor(Math.random() * 1e16);
           return html`
             <div class="form-group">
-              ${field.component.handlesOwnLabel ? null : html`<label for=${id}>${field.label}</label>`}
+              ${field.component.handlesOwnLabel ? null : html`<label for=${state.formId + '_' + field.name}>${field.label}</label>`}
               ${field.errors ? renderErrors(field.errors) : ''}
-              ${field.component({ id, ...field, onInput: handleInput })}
+              ${field.component({ id: state.formId + '_' + field.name, ...field, onInput: handleInput })}
             </div>
           `;
         })}
